@@ -11,6 +11,8 @@ import com.zappiello.helpdesk.domain.Tecnico;
 import com.zappiello.helpdesk.domain.dtos.TecnicoDTO;
 import com.zappiello.helpdesk.services.TecnicoService;
 
+import javassist.tools.rmi.ObjectNotFoundException;
+
 @RestController
 @RequestMapping(value = "/tecnicos")
 public class TecnicoResource {
