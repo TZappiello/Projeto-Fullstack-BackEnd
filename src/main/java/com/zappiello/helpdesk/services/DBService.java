@@ -29,17 +29,17 @@ public class DBService {
 
 	public void instanciaDB() {
 
-		Tecnico tec1 = new Tecnico(null, "Thiago Zappiello", "111.222.333-44", "tzappiello@mail.com", "123456");
+		Tecnico tec1 = new Tecnico(null, "Thiago Zappiello", "281.672.000-43", "tzappiello@mail.com", "123456");
 		tec1.addPerfil(Perfil.ADMIN);
 		
-		Tecnico tec2 = new Tecnico(null, "Ana Julha", "000.999.888-77", "ana@mail.com", "9876543");
+		Tecnico tec2 = new Tecnico(null, "Ana Julha", "827.227.200-86", "ana@mail.com", "9876543");
 		tec2.addPerfil(Perfil.TECNICO);
-		Tecnico tec3 = new Tecnico(null, "Mario Costa", "102.202.303-44", "mario@mail.com", "10101010");
+		Tecnico tec3 = new Tecnico(null, "Mario Costa", "816.124.760-90", "mario@mail.com", "10101010");
 		tec3.addPerfil(Perfil.TECNICO);
-		Tecnico tec4 = new Tecnico(null, "Maria Joaquina", "333.222.111-00", "maria@mail.com", "01010202");
+		Tecnico tec4 = new Tecnico(null, "Maria Joaquina", "827.567.890-03", "maria@mail.com", "01010202");
 		tec4.addPerfil(Perfil.ADMIN);
 
-		Cliente cli1 = new Cliente(null, "Laila Zappiello", "222.333.444-55", "lailazapi@mail.com", "123456");
+		Cliente cli1 = new Cliente(null, "Laila Zappiello", "238.486.330-43", "lailazapi@mail.com", "123456");
 
 		Chamado c1 = new Chamado(null, Prioridade.MEDIA, Status.ANDAMENTO, "Chamado 01", "Primeiro Chamado", tec1,
 				cli1);
