@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.zappiello.helpdesk.domain.Pessoa;
@@ -25,13 +26,12 @@ public class TecnicoService {
 	@Autowired
 	private PessoaRepository pessoaRepository;
 
+	@Autowired
+	private BCryptPasswordEncoder encoder;
+
 	public Tecnico findById(Integer id) {
 		Optional<Tecnico> obj = repository.findById(id);
-<<<<<<< HEAD
-		return obj.orElseThrow(() -> new ObjectnotFoundException("Objeto não encontrado com o id: "+id));
-=======
 		return obj.orElseThrow(() -> new ObjectnotFoundException("Objeto não encontrado!!! " + id));
->>>>>>> 30af33009ce1ab57dcb8b9a3812557325068dad1
 	}
 
 	public List<Tecnico> findAll() {
@@ -40,6 +40,7 @@ public class TecnicoService {
 
 	public Tecnico create(TecnicoDTO objDTO) {
 		objDTO.setId(null);
+		objDTO.setSenha(encoder.encode(objDTO.getSenha()));
 		validaPorCpfEEmail(objDTO);
 		Tecnico newObj = new Tecnico(objDTO);
 		return repository.save(newObj);
@@ -55,8 +56,8 @@ public class TecnicoService {
 
 	public void delete(Integer id) {
 		Tecnico obj = findById(id);
-		
-		if(obj.getChamados().size() > 0) {
+
+		if (obj.getChamados().size() > 0) {
 			throw new DataIntegrityViolationException("O Tecnico possui chamado em aberto e não pode ser deletado!");
 		}
 		repository.deleteById(id);
