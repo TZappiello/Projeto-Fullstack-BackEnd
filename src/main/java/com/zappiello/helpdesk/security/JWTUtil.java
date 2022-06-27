@@ -9,10 +9,9 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
-
 @Component
 public class JWTUtil {
-	
+
 	@Value("${jwt.expiration}")
 	private Long expiration;
 	
@@ -23,7 +22,7 @@ public class JWTUtil {
 		return Jwts.builder()
 				.setSubject(email)
 				.setExpiration(new Date(System.currentTimeMillis() + expiration))
-				.signWith(SignatureAlgorithm.ES512, secret)
+				.signWith(SignatureAlgorithm.HS512, secret.getBytes())
 				.compact();
 	}
 
@@ -52,7 +51,7 @@ public class JWTUtil {
 	public String getUsername(String token) {
 		Claims claims = getClaims(token);
 		if(claims != null) {
-			 return claims.getSubject();
+			return claims.getSubject();
 		}
 		return null;
 	}
