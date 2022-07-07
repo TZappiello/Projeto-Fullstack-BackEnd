@@ -33,7 +33,7 @@ public class DBService {
 
 	public void instanciaDB() {
 
-		Tecnico tec1 = new Tecnico(null, "Thiago Zappiello", "281.672.000-43", "tzappiello@mail.com", encoder.encode("123"));
+		Tecnico tec1 = new Tecnico(null, "Thiago Programador", "281.672.000-43", "teste@mail.com", encoder.encode("123"));
 		tec1.addPerfil(Perfil.ADMIN);
 		Tecnico tec2 = new Tecnico(null, "Ana Julha", "827.227.200-86", "ana@mail.com", encoder.encode("123"));
 		tec2.addPerfil(Perfil.TECNICO);
@@ -42,7 +42,7 @@ public class DBService {
 		Tecnico tec4 = new Tecnico(null, "Maria Joaquina", "827.567.890-03", "maria@mail.com", encoder.encode("123"));
 		tec4.addPerfil(Perfil.ADMIN);
 
-		Cliente cli1 = new Cliente(null, "Laila Zappiello", "238.486.330-43", "lailazapi@mail.com", encoder.encode("123"));
+		Cliente cli1 = new Cliente(null, "Adriana Andrade", "238.486.330-43", "adri@mail.com", encoder.encode("123"));
 		Cliente cli2 = new Cliente(null, "Bob Green", "910.136.570-39", "bob@mail.com", encoder.encode("123"));
 		Cliente cli3 = new Cliente(null, "Pablo Matias", "726.467.220-44", "pablom@mail.com", encoder.encode("123"));
 		
